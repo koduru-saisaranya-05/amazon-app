@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/2e64c661d0.js" crossorigin="anonymous"></script>
+    <title>Amazon Clone</title>
+    <link rel="shortcut icon" href="https://wallpapercave.com/dwp1x/wp7771193.jpg" type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <style>
+        /* body{
+            align-items: center;
+            justify-content: center;
+        } */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+        * {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* VARIABLES */
+        :root {
+            --major-bg-color: #131921;
+            --minor-bg-color: #ebeded;
+            --amazon-major-color: #febd68;
+            --accent-color: #293546;
+        }
+
+        /* BODY */
+        body {
+            background-color: var(--minor-bg-color);
+        }
+
+        /* HEADER */
+        .header {
+            width: 100%;
+            height: 50px;
+            background-color: var(--major-bg-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .header .header-nav {
+            margin-top: 2px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .header .header-nav .header-container {
+            width: 1200px;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .header-nav .header-container .amazon-logo {
+            width: 100px;
+            padding-top: 3px;
+            padding-left: 20px;
+        }
+
+        .header .header-nav .header-container .header-search {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            border-radius: 10px !important;
+        }
+
+        .header .header-nav .header-container .header-search .search-input {
+            width: 100%;
+            height: 33px;
+            border: 1px solid #ccc;
+            /* border-radius: 5px; */
+            padding: 0 10px;
+        }
+
+        .header .header-nav .header-container .header-search .search-button {
+            width: 40px;
+            height: 35px;
+            /* border-radius: 5px; */
+            background-color: var(--amazon-major-color);
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            color: #232323;
+        }
+
+        .header .header-nav .header-container .header-cart {
+            color: #efefef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 20px;
+        }
+
+        .header .header-nav .header-container .header-cart svg {
+            width: 40px;
+            height: 40px;
+            padding-top: 5px;
+        }
+
+        /* SECTION 1 */
+        .section-1 {
+            width: 100%;
+            height: auto;
+            background-size: cover;
+            display: flex;
+        }
+
+        .section-1 .section-1-container {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .section-1 .section-1-container .section-1-column {
+            width: 100%;
+            /* height: 300px; */
+            background-color: white;
+            padding: 20px;
+        }
+
+        .section-1 .section-1-container .section-1-column img {
+            margin-top: 20px;
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .section-1 .section-1-container .section-1-column p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #007185;
+        }
+
+        .section-1 .section-1-container .section-1-column button {
+            margin-top: 10px;
+            width: 100%;
+            border: none;
+            background-color: var(--amazon-major-color);
+            padding: 8px;
+            border-radius: 10px;
+        }
+
+        /* SECTION 2 */
+        .section-2 {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .section-2 .section-2-container h3 {
+            margin-bottom: 10px;
+        }
+
+        .section-2 .section-2-container .product-cards {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+
+        .section-2 .section-2-container .product-card {
+            display: inline-block;
+            width: 300px !important;
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section-2 .section-2-container .product-card img {
+            width: auto;
+            height: auto;
+            max-width: 270px;
+            max-height: 200px;
+            cursor: pointer;
+        }
+
+        /* SECTION 3 */
+        .section-3 {
+            background-color: white;
+        }
+
+        .section-3 .section-3-container {
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 20px;
+        }
+
+        .section-3 .section-3-container .product-detail-cards {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+
+        .section-3 .section-3-container .product-detail-cards .product-detail-card {
+            display: inline-block;
+            width: 200px !important;
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 4px;
+        }
+
+        .section-3 .section-3-container .product-detail-cards .product-detail-card .product-detail-img {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .section-3 .section-3-container .product-detail-cards .product-detail-card img {
+            width: 100%;
+            height: auto;
+            max-width: 160px;
+            max-height: 140px;
+        }
+
+        .section-3 .section-3-container .product-detail-cards .product-detail-card a {
+            text-decoration: none;
+            color: #007185;
+            font-size: 14px;
+        }
+
+        .section-3 .section-3-container .product-detail-cards .product-detail-card a:hover {
+            color: #c45500;
+            background: #FFF;
+        }
+
+        .section-3 .section-3-container .product-detail-cards .product-detail-card .product-deliver-by {
+            color: #222;
+            font-size: 10px;
+        }
+
+        /* SECTION 4 */
+        .section-4 {
+            /* background-color: white; */
+            padding: 20px;
+        }
+
+        .section-4 .section-4-container {
+            /* border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section-4 .section-4-container p {
+            margin: 4px;
+            font-size: 14px;
+        }
+
+        .section-4 .section-4-container button {
+            width: 300px;
+            border: none;
+            background-color: var(--amazon-major-color);
+            padding: 8px;
+            border-radius: 10px;
+        }
+
+        /* SECTION 5 */
+
+        .section-5 .section-5-container a:link,
+        a:visited {
+            display: block;
+            text-align: center;
+            padding: 15px 0;
+            line-height: 22px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+        }
+
+        .section-5 .section-5-container a:hover,
+        a:active {
+            background-color: #37485f;
+        }
+
+        /* FOOTER */
+        footer {
+            font-size: 12px;
+            width: 100%;
+            height: 50px;
+            color: white;
+            background-color: var(--major-bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hover1 figure:hover img {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        .hover1 figure img {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+
+        .nav-footer {
+            display: flex;
+            background-color: #232F3E;
+            justify-content: center;
+            padding: 5px;
+        }
+
+        .nav-footer h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #FFF;
+        }
+
+        .nav-footer p {
+            font-size: 12px;
+            padding: 4px 0 4px;
+            color: #DDD;
+            font-family: inherit;
+            text-decoration: none;
+        }
+
+        .nav-footer-left {
+            display: table-cell;
+            padding: 2% 6%;
+        }
+
+        .nav-footer-right {
+            display: table-cell;
+            padding: 2% 5%;
+        }
+
+        ::-webkit-scrollbar {
+            scrollbar-width: thin;
+            /* width: 4px; */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* SECTION 1 */
+        .product-heading {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-heading .product-head-container {
+            margin: 20px;
+        }
+
+        .product-heading .product-head-container h1 {
+            font-size: 30px;
+            font-weight: bold;
+            color: #121212;
+        }
+
+        /* SECTION 2 */
+        .product-detail {
+            width: 100%;
+            height: 700px;
+        }
+
+        .product-detail .product-container {
+            margin: 20px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-evenly;
+        }
+
+        .product-picture {
+            width: 50%;
+        }
+
+        .product-picture img {
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(66, 66, 66, 0.1);
+        }
+
+        .product-detail-body {
+            width: 30%;
+        }
+
+        .product-detail-body .product-title {
+            font-size: 25px;
+            font-weight: 500;
+            color: #121212;
+        }
+
+        .product-detail-body .product-price {
+            margin-top: 10px;
+            font-size: 28px;
+            font-weight: 500;
+        }
+
+        .product-detail-body .product-about {
+            margin-top: 10px;
+            color: #121212;
+        }
+
+        .product-detail-body .product-about h4 {
+            font-size: 20px;
+            font-weight: 500;
+            color: #121212;
+        }
+
+        .product-detail-body .buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 2px;
+        }
+
+        .product-detail-body .buttons .buy-now {
+            width: 50%;
+            border: none;
+            background-color: #ffa41c;
+            color: white;
+            padding: 8px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .product-detail-body .buttons .add-to-cart {
+            width: 50%;
+            border: 2px solid #ffa41c;
+            color: #ffa41c;
+            background-color: transparent;
+            padding: 8px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* Section 3 */
+
+        .section-3 .section-3-container a:link,
+        a:visited {
+            display: block;
+            text-align: center;
+            padding: 15px 0;
+            line-height: 22px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+        }
+
+        .section-3 .section-3-container a:hover,
+        a:active {
+            background-color: #37485f;
+        }
+        footer {
+            font-size: 12px;
+            width: 100%;
+            height: 50px;
+            color: white;
+            background-color: var(--major-bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hover1 figure:hover img {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        .hover1 figure img {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+
+        .nav-footer {
+            display: flex;
+            background-color: #232F3E;
+            justify-content: center;
+            padding: 5px;
+            margin-top: 50px;
+        }
+
+        .nav-footer h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #FFF;
+        }
+
+        .nav-footer p {
+            font-size: 12px;
+            padding: 4px 0 4px;
+            color: #DDD;
+            font-family: inherit;
+            text-decoration: none;
+        }
+
+        .nav-footer-left {
+            display: table-cell;
+            padding: 2% 6%;
+        }
+
+        .nav-footer-right {
+            display: table-cell;
+            padding: 2% 5%;
+        }
+        .a{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            background-color: black;}
+            .a2 {
+            display: flex;
+            flex-direction: row;
+            border: 2px rgb(15, 15, 15) solid;
+            color: rgb(9, 9, 9);
+            }
+    </style>
+
+
+</head>
+
+<body>
+    
+    <header class="header">
+        <div class="a">
+            <div><a href=""><img src="data:image/png;base64,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" alt=""width="150px"></a></div>
+            <a style="padding-top:10px ;" href=""><ion-icon name="location-outline" ></ion-icon></a>
+        <div style="padding-top:10px;"><select>
+            <div><option value="all" >All</option></div>
+            <div><option value="kid" >Kids</option></div>
+            <div><option value="kitchen" >Kichen</option></div>
+            <div><option value="HOme" >Home</option:></div>
+            <div><option value="electronic" >Electronic</option:></div> 
+            <div><option value="women" >Women ware</option:></div>   
+            <div><option value="men" >Men ware</option:></div>
+            <div><option value="cus" >Cousmatic</option:></div>
+        </select></div>
+    
+            <div class="a"><ion-icon name="search" style="width: 50px;height: 30px;color: white;padding-top: 10px;"></ion-icon>
+                <input type="text" placeholder="Try sarees,kurti search by product" style="width: 800px;border-radius: 5px;height:50px;">
+            </div>
+            <div style="padding-top:10px;"><select>
+                <div><option value="En" >En</option></div>
+                <div><option value="Hi" >Hindi</option></div>
+                <div><option value="Te" >Telugu</option></div>
+                <div><option value="Ta" >Tamil</option:></div>
+            </select></div>
+        </div>
+        
+    </header>
+    <div class="a2">
+        <div style="padding-left: 20px;"><a href="https://www.meesho.com/ethnicwear-women/pl/3tq">Women Ethnic</a></div>
+        <div style="padding-left: 20px;"><a href="https://www.meesho.com/tops-ladies/pl/3ja">Women Western</a></div>
+        <div style="padding-left: 20px;"><a href="https://www.meesho.com/tshirts-men/pl/3k8">Men</a></div>
+        <div style="padding-left: 20px;"><a href="https://www.meesho.com/soft-toys-kids/pl/3l1">Kids</a></div>
+        <div style="padding-left: 20px;"><a href="https://www.meesho.com/kitchen-storage/pl/3tn">Home & Kichen</a></div>
+        <div style="padding-left: 20px;"><a href="https://www.meesho.com/face-makeup/pl/3j7">Beauty & Health</a></div>
+        <div style="padding-left: 20px;"><a href="https://www.meesho.com/jewellery-sets-women/pl/3jy">Jewellery & Accessories</a></div>
+        <div style="padding-left: 20px;"><a href="https://www.meesho.com/bags-ladies/pl/3jo">Bags & Footwear</a></div>
+        <div style="padding-left: 20px;"><a href="https://www.meesho.com/mobiles-and-accessories/pl/3tk">Electronics</a></div>
+    </div>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                aria-label="Slide 3"></button>
+        </div>
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1" ></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2" ></button>
+            </div>
+            <div>
+            <div class="carousel-inner ">
+                <div class="carousel-item active bg-primary"> <img style="height: 450px; width: 1550px;" src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/Fashion/GW/Sep/OneCard-2000/Unrec-PC-3000._CB596309095_.jpg" alt=""></div>
+                <div class="carousel-item bg-success"> <img style="height: 450px; width: 1550px;" src="https://images-eu.ssl-images-amazon.com/images/G/31/img20/HSS/sep23/3000-x-1200-UNREC_2._CB595936287_.jpg" alt=""></div>
+                <div class="carousel-item bg-primary"> <img  style="height: 450px; width: 1550px;" src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/Beauty/GW/Makeup-PCokiu._CB596249098_.jpg" alt=""></div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div></div>
+
+    <!-- SECTION 1 -->
+    <section class="section-1">
+        <div class="section-1-container">
+            <div class="section-1-column">
+                <h3>Top picks for your home</h3>
+                <img style="cursor:pointer"
+                    src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-372x232----B08RDL6H79.SY232_CB667322346.jpg"
+                    alt="" />
+                <a href="">See more </a>
+            </div>
+            <div class="section-1-column">
+                <h3>Top rated, premium quality | Amazon Brands & more</h3>
+                <img src="https://images-eu.ssl-images-amazon.com/images/G/31/AmazonSmallBusinessDay/PrivateBrands/GW20/GW_Desktop_Softlines_QC_2X_V2_5.SY232_CB636581721.jpg"
+                    alt="" />
+                <a href="">See more </a>
+            </div>
+            <div class="section-1-column">
+                <h3>Shop & Pay | Earn rewards daily</h3>
+                <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Electronics/Clearance/Clearance_store_Desktop_CC_2x.SY608_CB628315133.jpg"
+                    alt="" />
+                <a href="">See more </a>
+            </div>
+            <div class="section-1-column">
+                <h3>Sign in for your best experience</h3>
+                <button><a href="login.html">Sign In</a></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2 - Related Items -->
+    <section class="section-2">
+        <div class="section-2-container">
+            <h3>Related to items you've viewed</h3>
+            <div class="product-cards">
+                <div class="product-card hover1">
+                    <figure>
+                        <a href="./product.html"><img
+                                src="https://m.media-amazon.com/images/I/61Y30DpqRVL.AC_SY400.jpg" alt="" /></a>
+                    </figure>
+                </div>
+                <div class="product-card hover1">
+                    <figure>
+                        <a href="./product.html"> <img
+                                src="https://m.media-amazon.com/images/I/61LNnZPoKPS.AC_SY400.jpg" alt="" /></a>
+                </div>
+                <div class="product-card hover1">
+                    <figure>
+                        <a href="./product.html"><img
+                                src="https://m.media-amazon.com/images/I/71iiXU7HHkL.AC_SY400.jpg" alt="" /></a>
+                </div>
+                <div class="product-card hover1">
+                    <figure>
+                        <img src="https://m.media-amazon.com/images/I/61XZQXFQeVL.AC_SY400.jpg" alt="" />
+                </div>
+                <div class="product-card hover1">
+                    <figure>
+                        <img src="https://m.media-amazon.com/images/I/712B4P3yOnL.AC_SY400.jpg" alt="" />
+                </div>
+                <div class="product-card hover1">
+                    <figure>
+                        <img src="https://m.media-amazon.com/images/I/51eTOVYRbTL.AC_SY400.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2 - Groceries -->
+    <section class="section-2">
+        <div class="section-2-container">
+            <h3>Best Sellers in Grocery & Gourmet Foods</h3>
+            <div class="product-cards">
+                <div class="product-card hover1">
+                    <figure>
+                        <img src="https://m.media-amazon.com/images/I/617tvTiZLGL.AC_SY400.jpg" alt="" />
+                </div>
+                <div class="product-card hover1">
+                    <figure>
+                        <img src="https://m.media-amazon.com/images/I/51tNket0w8L.AC_SY400.jpg" alt="" />
+                </div>
+                <div class="product-card hover1">
+                    <figure>
+                        <img src="https://m.media-amazon.com/images/I/91oNY+gNzPL.AC_SY400.jpg" alt="" />
+                </div>
+                <div class="product-card hover1">
+                    <figure>
+                        <img src="https://m.media-amazon.com/images/I/81NrftYFxsL.AC_SY400.jpg" alt="" />
+                </div>
+                <div class="product-card hover1">
+                    <figure>
+                        <img src="https://m.media-amazon.com/images/I/61uohjMdfzL.AC_SY400.jpg" alt="" />
+                </div>
+                <div class="product-card hover1">
+                    <figure>
+                        <img src="https://m.media-amazon.com/images/I/61oagbcgAtS.AC_SY400.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section-3">
+        <section class="section-3-container">
+            <h3>Inspired by your browsing history</h3>
+            <div class="product-detail-cards">
+                <div class="product-detail-card">
+                    <div class="product-detail-img hover1">
+                        <figure>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/61aUBxqc5PL.AC_UL320_SR320,320.jpg"
+                                alt="" />
+                        </figure>
+                        </figure>
+                    </div>
+                    <a class="product-detail-link" href="./product.html">2021 Apple MacBook Pro (16-inch//41.05 cm,
+                        Apple M1 Max
+                        chip with
+                        10‑core CPU and 32‑core GPU, 32GB RAM, 1TB SSD) - Space Grey</a>
+                    <p>
+                        <strong class="product-price">₹ 3,99,999.00</strong>
+                    </p>
+                    <p class="product-deliver-by">
+                        Get it by <strong>Monday, August 22</strong>
+                        FREE Delivery over ₹499. Fulfilled by Amazon.
+                    </p>
+                </div>
+                <div class="product-detail-card">
+                    <div class="product-detail-img hover1">
+                        <figure>
+
+                            <img src="https://m.media-amazon.com/images/I/71ZOtNdaZCL.AC_UY436_FMwebp_QL65.jpg"
+                                alt="" />
+                        </figure>
+                    </div>
+                    <a class="product-detail-link" href="./product.html">2021 Apple MacBook Pro (16-inch//41.05 cm,
+                        Apple M1 Max
+                        chip with
+                        10‑core CPU and 32‑core GPU, 32GB RAM, 1TB SSD) - Space Grey</a>
+                    <p>
+                        <strong class="product-price">₹ 3,99,999.00</strong>
+                    </p>
+                    <p class="product-deliver-by">
+                        Get it by <strong>Monday, August 22</strong>
+                        FREE Delivery over ₹499. Fulfilled by Amazon.
+                    </p>
+                </div>
+                <div class="product-detail-card">
+                    <div class="product-detail-img hover1">
+                        <figure>
+
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/61LNnZPoKPS.AC_UL320_SR320,320.jpg"
+                                alt="" />
+                        </figure>
+                    </div>
+                    <a class="product-detail-link" href="./product.html">2021 Apple MacBook Pro (16-inch//41.05 cm,
+                        Apple M1 Max
+                        chip with
+                        10‑core CPU and 32‑core GPU, 32GB RAM, 1TB SSD) - Space Grey</a>
+                    <p>
+                        <strong class="product-price">₹ 3,99,999.00</strong>
+                    </p>
+                    <p class="product-deliver-by">
+                        Get it by <strong>Monday, August 22</strong>
+                        FREE Delivery over ₹499. Fulfilled by Amazon.
+                    </p>
+                </div>
+                <div class="product-detail-card">
+                    <div class="product-detail-img hover1">
+                        <figure>
+
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/71hmqIQJFdL.AC_UL320_SR320,320.jpg"
+                                alt="" />
+                        </figure>
+                    </div>
+                    <a class="product-detail-link" href="./product.html">2021 Apple MacBook Pro (16-inch//41.05 cm,
+                        Apple M1 Max
+                        chip with
+                        10‑core CPU and 32‑core GPU, 32GB RAM, 1TB SSD) - Space Grey</a>
+                    <p>
+                        <strong class="product-price">₹ 3,99,999.00</strong>
+                    </p>
+                    <p class="product-deliver-by">
+                        Get it by <strong>Monday, August 22</strong>
+                        FREE Delivery over ₹499. Fulfilled by Amazon.
+                    </p>
+                </div>
+                <div class="product-detail-card">
+                    <div class="product-detail-img hover1">
+                        <figure>
+
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/71eknZxZLmL.AC_UL320_SR320,320.jpg"
+                                alt="" />
+                        </figure>
+                    </div>
+                    <a class="product-detail-link" href="./product.html">2021 Apple MacBook Pro (16-inch//41.05 cm,
+                        Apple M1 Max
+                        chip with
+                        10‑core CPU and 32‑core GPU, 32GB RAM, 1TB SSD) - Space Grey</a>
+                    <p>
+                        <strong class="product-price">₹ 3,99,999.00</strong>
+                    </p>
+                    <p class="product-deliver-by">
+                        Get it by <strong>Monday, August 22</strong>
+                        FREE Delivery over ₹499. Fulfilled by Amazon.
+                    </p>
+                </div>
+                <div class="product-detail-card">
+                    <div class="product-detail-img hover1">
+                        <figure>
+
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/91k86Cdp1uL.AC_UL320_SR320,320.jpg"
+                                alt="" />
+                        </figure>
+                    </div>
+                    <a class="product-detail-link" href="./product.html">2021 Apple MacBook Pro (16-inch//41.05 cm,
+                        Apple M1 Max
+                        chip with
+                        10‑core CPU and 32‑core GPU, 32GB RAM, 1TB SSD) - Space Grey</a>
+                    <p>
+                        <strong class="product-price">₹ 3,99,999.00</strong>
+                    </p>
+                    <p class="product-deliver-by">
+                        Get it by <strong>Monday, August 22</strong>
+                        FREE Delivery over ₹499. Fulfilled by Amazon.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="section-4">
+        <div class="section-4-container">
+            <p>See personalized recommendations</p>
+            <button><a href="login.html">Sign In</a></button>
+            <p>New customer? <a href="login.html">start here</a> </p>
+
+        </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="section-5">
+        <div class="section-5-container">
+            <a href="#nav-top" id="back-to-top" aria-label="Back to top">
+                <span class="back-to-top-text">
+                    Back to top
+                </span>
+            </a>
+        </div>
+    </section>
+    <div class="nav-footer">
+        <div class="nav-footer-left">
+            <h4>Get to Know Us</h4>
+            <p>About Us</p>
+            <p>Careers</p>
+            <p>Press Releases</p>
+            <p>Amazon Science</p>
+        </div>
+        <div class="nav-footer-left">
+            <h4>Connect with Us</h4>
+            <a href="https://www.facebook.com/AmazonIN">
+                <p>Facebook</p>
+            </a>
+            <a href="https://twitter.com/AmazonIN">
+                <p>Twitter</p>
+            </a>
+            <a href="https://www.instagram.com/amazondotin/">
+                <p>Instagram</p>
+            </a>
+        </div>
+        <div class="nav-footer-right">
+            <h4>Make Money with Us</h4>
+            <p>Sell on Amazon</p>
+            <p>Sell under Amazon Accelerator</p>
+            <p>Amazon Global Selling</p>
+            <p>Become an Affiliate</p>
+            <p>Fulfilment by Amazon</p>
+            <p>Advertise Your Products</p>
+            <p>Amazon Pay on Merchants</p>
+        </div>
+        <div class="nav-footer-right">
+            <h4>Let Us Help You</h4>
+            <p>COVID-19 and Amazon</p>
+            <p>Your Account</p>
+            <p>Returns Centre</p>
+            <p>100% Purchase Protection</p>
+            <p>Amazon App Download</p>
+            <p>Amazon Assistant Download</p>
+            <p>Help</p>
+        </div>
+    </div>
+
+    <footer>
+        <code>Made with ❤ by NIE GFG Student Chapter</code>&nbsp; | &nbsp;
+        <span id="year"></span>
+    </footer>
+    <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
